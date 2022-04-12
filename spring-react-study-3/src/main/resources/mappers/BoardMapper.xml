@@ -2,6 +2,11 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+ namespace : mapper interface 인터페이스 바인딩
+ resultType : 반환타입 (aplication.yml에 경로 지정 가능, 하지 않을 경우 전체 경로 입력 필수)
+ id : mapper interface 함수명 바인딩
+-->  
 <mapper namespace="com.app.mapper.BoardMapper">
 	<select id="list" resultType="BoardDto">
 		SELECT no, subject, content, writer, regist_date FROM board
@@ -10,4 +15,9 @@
 	<select id="detail" parameterType="int" resultType="BoardDto">
 		SELECT no, subject, content, writer, regist_date FROM board WHERE no = #{no}
 	</select>
+
+	<insert id="boardWrite" parameterType="BoardDto">
+		INSERT INTO board (subject, content, writer, regist_date) VALUES
+		(#{subject}, #{content}, #{writer}, #{regist_date})
+	</insert>
 </mapper>

@@ -1,7 +1,5 @@
 package com.app.dto;
 
-import java.util.Date;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,5 +10,5 @@ public class BoardDto {
 	private String subject;
 	private String content;
 	private String writer;
-	private Date regist_date;
+	private String regist_date;
 }

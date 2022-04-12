@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.app.dto.BoardDto;
 
+//@Mapper : Marker interface for MyBatis mappers
 @Mapper
 public interface BoardMapper {
 	// 게시판 목록
@@ -13,5 +14,8 @@ public interface BoardMapper {
 	
 	// 게시판 상세
 	List<BoardDto> detail(int no) throws Exception;
+	
+	// 게시글 작성
+	void boardWrite(BoardDto boardVo) throws Exception;
 
 }
